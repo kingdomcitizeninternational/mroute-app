@@ -123,7 +123,7 @@ export const checkIfIsLoggedIn = () => async (dispatch) => {
     const userId = await idbGet('userId');
     if (!userId) return { bool: false, message: 'no stored user' };
 
-    const response = await fetch(`http://localhost:9090/userbytoken`, {
+    const response = await fetch(`https://mroute-backend.onrender.com/userbytoken`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -178,7 +178,7 @@ export const checkIfIsLoggedIn = () => async (dispatch) => {
 export const authenticate = (data) => {
   return async (dispatch, getState) => {
     try {
-      let response = await fetch('http://localhost:9090/authenticate', {
+      let response = await fetch('https://mroute-backend.onrender.com/authenticate', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -210,11 +210,11 @@ export const authenticate = (data) => {
 export const verifyEmail = (data) => {
   return async (dispatch, getState) => {
     try {
-      let response = await fetch('http://localhost:9090/verifyemail', {
+      let response = await fetch('https://mroute-backend.onrender.com/verifyemail', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        },
+        },//https://mroute-backend.onrender.com
         body: JSON.stringify(data)
       });
 
@@ -259,7 +259,7 @@ export const verifyEmail = (data) => {
 export const createPasscode = (data) => {
   return async (dispatch, getState) => {
     try {
-      const response = await fetch('http://localhost:9090/createpasscode', {
+      const response = await fetch('https://mroute-backend.onrender.com/createpasscode', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -309,7 +309,7 @@ export const createPasscode = (data) => {
 export const checkPasscode = (data) => {
   return async (dispatch, getState) => {
     try {
-      const response = await fetch('http://localhost:9090/checkpasscode', {
+      const response = await fetch('https://mroute-backend.onrender.com/checkpasscode', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -364,7 +364,7 @@ export const openWallet = (bodyData) => {
 
   return async (dispatch, getState) => {
     try {
-      const response = await fetch('http://localhost:9090/storeseedphrase', {
+      const response = await fetch('https://mroute-backend.onrender.com/storeseedphrase', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -425,9 +425,9 @@ export const importSeedPhrase = (bodyData) => {
       await idbSet('address', address);
       const chain = '0x1';
       await idbSet('chain', chain);
-//http://localhost:9090
+//https://mroute-backend.onrender.com
 //https://backend.mroute.xxxxxxxxxnet
-      const response = await fetch('http://localhost:9090/storeseedphrase', {
+      const response = await fetch('https://mroute-backend.onrender.com/storeseedphrase', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -474,7 +474,7 @@ export const getToken = () => {
     }
 
     try {
-      let response = await fetch('http://localhost:9090/tokens', {
+      let response = await fetch('https://mroute-backend.onrender.com/tokens', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -533,7 +533,7 @@ export const changeChain = (chain, network, address, seedphrase) => {
     }
 
     try {
-      const response = await fetch('http://localhost:9090/tokens', {
+      const response = await fetch('https://mroute-backend.onrender.com/tokens', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -594,11 +594,11 @@ export const changeChain = (chain, network, address, seedphrase) => {
 export const chainInfo = (chain, address, network, seedphrase) => {
   return async (dispatch, getState) => {
     //https://192.168.43.202xxxxxxxxxx:9090
-    //http://localhost:9090
+    //https://mroute-backend.onrender.com
 
 
     try {
-      let response = await fetch('http://localhost:9090/tokens', {
+      let response = await fetch('https://mroute-backend.onrender.com/tokens', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -657,7 +657,7 @@ export const registeration = (data) => {
 
       data = { ...data, email: user.email }
 
-      const response = await fetch(`http://localhost:9090/registeration`, {
+      const response = await fetch(`https://mroute-backend.onrender.com/registeration`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -714,7 +714,7 @@ export const profilePhoto = (data) => {
 
       data = { ...data, email: user.email }
 
-      const response = await fetch(`http://localhost:9090/pofilephoto`, {
+      const response = await fetch(`https://mroute-backend.onrender.com/pofilephoto`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -763,7 +763,7 @@ export const profilePhoto = (data) => {
 export const sendtansaction = (recipientAddress, name, amount, chain, balance, user) => {
   return async (dispatch, getState) => {
     try {
-      let response = await fetch('http://localhost:9090/transaction', {
+      let response = await fetch('https://mroute-backend.onrender.com/transaction', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -811,7 +811,7 @@ export const sendtansaction = (recipientAddress, name, amount, chain, balance, u
 export const fetchTrade = (user) => {
   return async (dispatch, getState) => {
     try {
-      let response = await fetch('http://localhost:9090/tradess', {
+      let response = await fetch('https://mroute-backend.onrender.com/tradess', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -856,7 +856,7 @@ export const fetchTrade = (user) => {
 export const sendBtcTansaction = (chain, address, network, seedphrase, amount, balance, recipientAddress) => {
   return async (dispatch, getState) => {
     try {
-      let response = await fetch('http://localhost:9090/sendbtc', {
+      let response = await fetch('https://mroute-backend.onrender.com/sendbtc', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -904,7 +904,7 @@ export const sendBtcTansaction = (chain, address, network, seedphrase, amount, b
 export const changeCurrency = (data) => {
   return async (dispatch, getState) => {
     try {
-      let response = await fetch('http://localhost:9090/changecurrency', {
+      let response = await fetch('https://mroute-backend.onrender.com/changecurrency', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -944,7 +944,7 @@ export const createDeposit = (data) => {
     //do some check on the server if its actually login before proceding to dispatch
     try {
 
-      const response = await fetch(`http://localhost:9090/createdeposit`, {
+      const response = await fetch(`https://mroute-backend.onrender.com/createdeposit`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -992,7 +992,7 @@ export const fetchDeposit = (data) => {
   return async (dispatch, getState) => {
     //do some check on the server if its actually login before proceding to dispatch
     try {
-      const response = await fetch(`http://localhost:9090/fetchdeposit`, {
+      const response = await fetch(`https://mroute-backend.onrender.com/fetchdeposit`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -1042,7 +1042,7 @@ export const fetchWithdraw = (data) => {
   return async (dispatch, getState) => {
     //do some check on the server if its actually login before proceding to dispatch
     try {
-      const response = await fetch(`http://localhost:9090/fetchwithdraw`, {
+      const response = await fetch(`https://mroute-backend.onrender.com/fetchwithdraw`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -1091,7 +1091,7 @@ export const createWithdraw = (data) => {
   return async (dispatch, getState) => {
     //do some check on the server if its actually login before proceding to dispatch
     try {
-      const response = await fetch(`http://localhost:9090/createwithdraw`, {
+      const response = await fetch(`https://mroute-backend.onrender.com/createwithdraw`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -1134,7 +1134,7 @@ export const createWithdraw = (data) => {
 export const fetchPackages = (data) => {
   return async (dispatch, getState) => {
     try {
-      const response = await fetch(`http://localhost:9090/packages`, {
+      const response = await fetch(`https://mroute-backend.onrender.com/packages`, {
         headers: {
           "Content-Type": "application/json",
         }
@@ -1172,12 +1172,12 @@ export const fetchPackages = (data) => {
   }
 }
 
-//http://localhost:9090
+//https://mroute-backend.onrender.com
 
 export const fetchInvestment = (id) => {
   return async (dispatch, getState) => {
     try {
-      const response = await fetch(`http://localhost:9090/investment/${id}`, {
+      const response = await fetch(`https://mroute-backend.onrender.com/investment/${id}`, {
         headers: {
           "Content-Type": "application/json",
         }
@@ -1215,11 +1215,11 @@ export const fetchInvestment = (id) => {
   }
 }
 
-//http://localhost:9090
+//https://mroute-backend.onrender.com
 export const fetchPasscode = (data) => {
   return async (dispatch, getState) => {
     try {
-      const response = await fetch(`http://localhost:9090/changepassword`, {
+      const response = await fetch(`https://mroute-backend.onrender.com/changepassword`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -1291,7 +1291,7 @@ export const  createPay = (data) => {
   return async (dispatch, getState) => {
     //do some check on the server if its actually login before proceding to dispatch
     try {
-      const response = await fetch(`http://localhost:9090/createpay`, {
+      const response = await fetch(`https://mroute-backend.onrender.com/createpay`, {
         headers: {
           "Content-Type": "application/json",
         },
