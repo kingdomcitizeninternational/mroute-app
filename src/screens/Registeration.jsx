@@ -7,7 +7,7 @@ import { registeration } from '../store/action/appStorage';
 import FormInput from '../components/Input';
 import SelectInput from '../components/select';
 import ReactS3 from 'react-s3';
-import { Buffer } from "buffer";*/
+import { Buffer } from "buffer";
 import Loader from "../Modal/OnscreenModal";
 import Modal from '../Modal/AuthModal';
 
