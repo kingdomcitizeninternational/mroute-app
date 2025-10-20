@@ -88,8 +88,8 @@ const styles = {
   button: {
     marginTop: '0.75rem',
     padding: '0.5rem 1.25rem',
-    background: '#b6973a;',
-    color: '#fff',
+    background: '#b6973a',
+    color: 'black',
     border: 'none',
     borderRadius: '8px',
     fontSize: '16px',
