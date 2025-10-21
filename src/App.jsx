@@ -47,7 +47,7 @@ import { toast, Slide, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Registeration from './screens/Registeration';
-//import ProfilePhoto from './screens/ProfilePhoto';
+import ProfilePhoto from './screens/ProfilePhoto';
 
 import ImgUrl from './assets/192.png';
 
